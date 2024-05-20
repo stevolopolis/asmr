@@ -1,0 +1,16 @@
+.vscode
+outputs
+data
+wandb
+.vscode
+visualizations
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info
+*.ipynb
+*.ply
+*.out

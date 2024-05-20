@@ -1,0 +1,18 @@
+name: LOE_SIREN
+
+INPUT_OUTPUT:
+  coord_mode: 3                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2, 3: [-1, 0.999999]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+
+NET:
+  dim_hidden: 32 #256
+  num_layers: 5 #6
+  num_freq: 8 #9
+  n_tiles: 2
+  omega_0: 30.0
+  img_dim: [512, 768]
+  #tile_dims: [[2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 3]]     # for 2D images
+  tile_dims: [[4, 4], [4, 4], [8, 8], [4, 6]]   # 5layer for 2D image
+  #tile_dims: [[3, 4, 4], [4, 4, 4], [5, 4, 4], [5, 8, 8]]   # 5layer for 3D video
+  #tile_dims: [[2, 2, 2], [2, 2, 2], [3, 2, 2], [5, 2, 2], [5, 2, 2], [1, 2, 2], [1, 2, 2], [1, 2, 2], [1, 2, 2]]     # curr loe
+  #tile_dims: [[2, 2, 2], [4, 4, 4], [4, 4, 4], [4, 4, 4], [4, 4, 4]]    # loe_supp config

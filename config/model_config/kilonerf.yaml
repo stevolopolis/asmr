@@ -1,0 +1,42 @@
+name: KILONERF
+
+# Generic configs
+INPUT_OUTPUT:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2, 3: [-1, 0.999999]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]   # [3, 8, 8] 
+
+NET:
+  lr: 0.0005
+  num_layers: 6
+  dim_hidden: 32
+  num_freq: 10
+  dimensions: [16, 16]   # [3, 8, 8] 
+
+
+# Megapixel configs
+INPUT_OUTPUT_MEGA:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2, 3: [-1, 0.999999]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]
+
+NET_MEGA:
+  lr: 0.0005
+  num_layers: 6
+  dim_hidden: 32
+  num_freq: 10
+  dimensions: [16, 16]
+
+
+# Video configs
+INPUT_OUTPUT_VIDEO:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2, 3: [-1, 0.999999]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [3, 5, 5]
+
+NET_VIDEO:
+  lr: 0.0005
+  num_layers: 8
+  dim_hidden: 64
+  num_freq: 10
+  dimensions: [3, 5, 5]

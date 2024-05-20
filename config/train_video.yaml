@@ -1,0 +1,31 @@
+TRAIN_CONFIGS:
+  out_dir: taco_beauty_quarterres
+  lr: 1e-4
+  iterations: 300 #10000
+  val_interval: 30 #2000
+  device: cuda:2
+  seed: 42
+  model_config_type: VIDEO
+
+DATASET_CONFIGS:
+  data_type: video
+  file_path: ../../data/asmr_data/beauty
+  batch_size: 194400
+
+WANDB_CONFIGS:
+  use_wandb: 1
+  wandb_project: video_camready
+  wandb_entity: taco-wacv
+  group: uvg
+
+defaults:
+  - model_config: taco
+
+# hydra logging
+hydra:
+  run:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}
+    
+  sweep:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}/${hydra.job.name}
+    subdir: ${hydra.job.num}

@@ -1,0 +1,32 @@
+TRAIN_CONFIGS:
+  out_dir: asmr
+  lr: 1e-4
+  iterations: 10000
+  save_interval: 100
+  device: cuda:0
+  seed: 42
+  model_config_type: AUDIO
+
+DATASET_CONFIGS:
+  data_type: audio
+  sample_idx: 0
+  num_secs: 2
+
+WANDB_CONFIGS:
+  use_wandb: 1
+  wandb_project: audio_camready
+  wandb_entity: taco-wacv
+  group: librispeech
+
+defaults:
+  - _self_
+  - model_config: asmr
+
+# hydra logging
+hydra:
+  run:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}
+    
+  sweep:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}/${hydra.job.name}
+    subdir: ${hydra.job.num}

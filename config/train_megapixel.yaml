@@ -1,0 +1,36 @@
+TRAIN_CONFIGS:
+  out_dir: kilonerf_2
+  lr: 1e-4
+  iterations: 500
+  save_interval: 10
+  device: cuda:0
+  seed: 42
+  num_layers: 6
+  model_config_type: MEGA
+
+DATASET_CONFIGS:
+  data_type: megapixel
+  file_path: ../datasets/megapixels/pluto_8192.png
+  color_mode: RGB             # RGB or L (grayscale)
+  max_coords: 262144          # maximum pixels per batch (set for RTX3090)
+  img_size: [8192, 8192]      # image size
+
+
+WANDB_CONFIGS:
+  use_wandb: 1
+  wandb_project: megapixel_camready
+  wandb_entity: taco-wacv
+  group: pluto
+
+defaults:
+  - _self_
+  - model_config: kilonerf
+
+# hydra logging
+hydra:
+  run:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}
+    
+  sweep:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}/${hydra.job.name}
+    subdir: ${hydra.job.num}

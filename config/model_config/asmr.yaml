@@ -1,0 +1,117 @@
+name: ASMR
+
+# Generic configs
+INPUT_OUTPUT:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]
+
+NET:
+  lr: 0.0001
+  num_layers: 6
+  dim_hidden: 512
+  w0: 30.0
+  w0_initial: 30.0
+  use_bias: True
+  dimensions: [[4,4,4,4,4,8], [4,4,4,4,4,8]]
+  shared_inference: True
+
+  # For lora experiment
+  lora: false
+  pretrain_path: "outputs/siren-kodak24/model.pth"
+  # Modulator type
+  modulator: linear
+# ----------------------------------
+# Configs for audio
+# ----------------------------------
+INPUT_OUTPUT_AUDIO:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1
+
+
+NET_AUDIO:
+  lr: 0.0001
+  num_layers: 4
+  dim_hidden: 128
+  w0: 30.0
+  w0_initial: 30.0
+  use_bias: True
+  dimensions: [[10,10,16,20]]
+  shared_inference: True
+  # Modulator type
+  modulator: linear
+
+# ----------------------------------
+# Configs for kodak image 
+# ----------------------------------
+INPUT_OUTPUT_IMG:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]
+
+NET_IMG:
+  lr: 0.0001
+  num_layers: 4
+  dim_hidden: 256
+  w0: 30.0
+  w0_initial: 30.0
+  use_bias: True
+  dimensions: [[4,4,4,8], [4,4,6,8]]
+  shared_inference: False
+
+  # For lora experiment
+  lora: false
+  pretrain_path: "outputs/siren-kodak24/model.pth"
+  # Modulator type
+  modulator: linear
+
+
+
+# ----------------------------------
+# Configs for megapixel image 
+# ----------------------------------
+INPUT_OUTPUT_MEGA:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]
+
+NET_MEGA:
+  lr: 0.0001
+  num_layers: 6
+  dim_hidden: 512
+  w0: 30.0
+  w0_initial: 30.0
+  use_bias: True
+  dimensions: [[4,4,4,4,4,8], [4,4,4,4,4,8]]  
+  shared_inference: False
+
+  # For lora experiment
+  lora: false
+  pretrain_path: "outputs/siren-kodak24/model.pth"
+  # Modulator type
+  modulator: linear
+
+
+# ----------------------------------
+# Configs for video 
+# ----------------------------------
+INPUT_OUTPUT_VIDEO:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [15, 27, 48]
+
+NET_VIDEO:
+  lr: 0.0001
+  num_layers: 10
+  dim_hidden: 512
+  w0: 30.0
+  w0_initial: 30.0
+  use_bias: True
+  dimensions:  [[5, 1, 1, 5, 1, 1, 3, 1, 1, 2], [5, 1, 3, 1, 3, 1, 3, 1, 2, 1], [5, 3, 2, 2, 1, 2, 1, 2, 1, 2]]
+  shared_inference: False
+
+  # For lora experiment
+  lora: false
+  pretrain_path: "outputs/siren-kodak24/model.pth"
+  # Modulator type
+  modulator: linear

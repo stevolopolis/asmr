@@ -1,0 +1,34 @@
+TRAIN_CONFIGS:
+  out_dir: asmr
+  lr: 1e-4
+  iterations: 10000
+  save_interval: 100
+  device: cuda:0
+  seed: 42
+  model_config_type: IMG
+
+DATASET_CONFIGS:
+  data_type: cameraman
+  file_path: ../datasets/megapixels/pluto8192.png
+  color_mode: L              # RGB or L (grayscale)
+  img_size: null
+
+
+WANDB_CONFIGS:
+  use_wandb: 1
+  wandb_project: low_mac_camready
+  wandb_entity: taco-wacv
+  group: cameraman
+
+defaults:
+  - _self_
+  - model_config: siren
+
+# hydra logging
+hydra:
+  run:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}
+    
+  sweep:
+    dir: outputs/${TRAIN_CONFIGS.out_dir}/hydra_configs/${now:%Y-%m-%d-%H-%M-%S}/${hydra.job.name}
+    subdir: ${hydra.job.num}

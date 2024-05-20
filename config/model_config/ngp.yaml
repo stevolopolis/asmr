@@ -1,0 +1,78 @@
+name: NGP
+
+INPUT_OUTPUT:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]
+
+NET:
+  num_layers: 2
+  dim_hidden: 64
+  n_levels: 16
+  feature_dim: 2
+  log2_n_features: 24
+  base_resolution: 16
+  finest_resolution: 4096
+  lr: 0.01
+
+# ----------------------------------
+# Configs for kodak image 
+# ----------------------------------
+INPUT_OUTPUT_IMG:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]
+
+NET_IMG:
+  # relu configs
+  num_layers: 2
+  dim_hidden: 64
+  # hash configs
+  n_levels: 8
+  feature_dim: 2
+  log2_n_features: 15
+  base_resolution: 16
+  finest_resolution: 256
+  lr: 0.01
+
+
+# ----------------------------------
+# Configs for megapixel image 
+# ----------------------------------
+INPUT_OUTPUT_MEGA:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]
+
+NET_MEGA:
+  # relu configs
+  num_layers: 2
+  dim_hidden: 64
+  # hash configs
+  n_levels: 16
+  feature_dim: 2
+  log2_n_features: 16
+  base_resolution: 16
+  finest_resolution: 4096
+  lr: 0.01
+
+
+# ----------------------------------
+# Configs for video 
+# ----------------------------------
+INPUT_OUTPUT_VIDEO:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [15, 27, 48]
+
+NET_VIDEO:
+  # relu configs
+  num_layers: 2
+  dim_hidden: 64
+  # hash configs
+  n_levels: 16
+  feature_dim: 2
+  log2_n_features: 17
+  base_resolution: [5, 9, 12]
+  finest_resolution: [75, 135, 240]
+  lr: 0.01

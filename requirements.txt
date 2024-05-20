@@ -1,0 +1,14 @@
+torch
+torchvision
+PIL
+numpy
+einops
+tqdm
+scikit-learn
+
+hydra-core
+wandb
+easydict
+moviepy 
+imageio
+deepspeed

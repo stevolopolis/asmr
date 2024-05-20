@@ -1,0 +1,15 @@
+name: LOE
+
+INPUT_OUTPUT:
+  coord_mode: 0                # 0: [0, H-1] x [0, W-1], 1: [0, 1]^2,  2: [-1, 1]^2, 3: [-1, 0.999999]^2
+  data_range: 1                # 1: [0, 1]^2,  2: [-1, 1]^2
+  grid_dims: [16, 16]
+
+NET:
+  lr: 0.01
+  num_layers: 6
+  dim_hidden: 80
+  num_freq: 8
+  omega_0: 30.0
+  img_dim: [256, 256]
+  dimensions: [[8, 8], [8, 8], [8, 8]]
