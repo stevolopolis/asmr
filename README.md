@@ -3,7 +3,7 @@
 > __ASMR - Activation-Sharing Multi-Resolution Coordinate Networks for Efficient Inference__  
 > [JCL Li](https://www.linkedin.com/in/jason-chun-lok-li-0590b3166), [STS Luo](https://www.cs.toronto.edu/~stevenlts), [Le Xu](https://scholar.google.com/citations?user=3ZHoWOMAAAAJ&hl=zh-CN), [Ngai Wong](https://www.eee.hku.hk/~nwong)  
 > _The Twelfth International Conference on Learning Representations (__ICLR__), 2024_  
-> __[Project page](https://github.com/stevolopolis/taco_temp)&nbsp;/ [Paper](https://openreview.net/pdf?id=kMp8zCsXNb)&nbsp;/ [Presentation](https://drive.google.com/file/d/10MT_wnoEnvn4RJcQgpneV7TIXbLQqr8u/view?usp=sharing)__
+> __[Project page](https://github.com/stevolopolis/asmr)&nbsp;/ [Paper](https://openreview.net/pdf?id=kMp8zCsXNb)&nbsp;/ [Presentation](https://drive.google.com/file/d/10MT_wnoEnvn4RJcQgpneV7TIXbLQqr8u/view?usp=sharing)__
 
 ## General code structure
 `config/` - Contains the default configurations for all our experiments and models. Model configurations are stored in the subdirectory `config/model_config`. Each model configuration file contains a placeholder set of configs with headers `INPUT_OUTPUT`, which specifies the model input/output formats, and `NET`, which specifies the model hyperparameters. Following that are modality specific configurations with headers `INPUT_OUTPUT_<modality>` and `NET_<modality>`. For example, configurations for ASMR on megapixel images wuld have headers `INPUT_OUTPUT_MEGA` and `NET_MEGA`.
